@@ -3,13 +3,22 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-  ActiveRecord::Migration.check_pending!
+	# Add more helper methods to be used by all tests here...
+	include FactoryGirl::Syntax::Methods
+end
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
-  fixtures :all
+# Setup database cleaner
+DatabaseCleaner.strategy = :truncation
+module DatabaseCleanerModule
+	def before_setup
+		DatabaseCleaner.start
+	end
 
-  # Add more helper methods to be used by all tests here...
+	def after_teardown
+		DatabaseCleaner.clean
+	end
+end
+
+class MiniTest::Unit::TestCase
+	include DatabaseCleanerModule
 end

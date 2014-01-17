@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Mongodb
+gem 'mongoid', github: 'mongoid/mongoid'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -32,6 +32,12 @@ group :doc do
 	gem 'sdoc', require: false
 end
 
-
 # OdaniaPortal libraries
 gem 'odania_core'
+
+group :development, :test do
+	gem 'factory_girl_rails'
+	gem 'minitest'
+	gem 'minitest-reporters'
+	gem 'database_cleaner'
+end

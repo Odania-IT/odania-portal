@@ -11,6 +11,7 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     ffi (1.9.10)
     hashie (3.4.4)
@@ -32,6 +33,19 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.1.1)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.4)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
     rubyzip (1.2.0)
     selenium-webdriver (2.52.0)
       childprocess (~> 0.5)
@@ -54,5 +68,6 @@ DEPENDENCIES
   hashie
   httparty
   rake
+  rspec
   selenium-webdriver
   site_prism

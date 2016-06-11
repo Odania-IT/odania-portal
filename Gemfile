@@ -9,7 +9,4 @@ gem 'httparty'
 gem 'capybara'
 gem 'selenium-webdriver'
 gem 'site_prism'
-
-# Rspec
-require 'rspec'
-require 'capybara/rspec'
+gem 'rspec'

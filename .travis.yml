@@ -1,0 +1,25 @@
+language: ruby
+rvm:
+  - 2.2.4
+  - jruby-19mode
+  - jruby-head
+  - ruby-head
+  - ree
+services:
+  - elasticsearch
+matrix:
+  allow_failures:
+    - rvm: jruby-19mode
+    - rvm: ree
+    - rvm: ruby-head
+    - rvm: jruby-head
+notifications:
+  email: true
+script:
+  - bundle exec rake
+before_script:
+  - sleep 10
+  - cp config/elasticsearch.dist.yml config/elasticsearch.yml
+addons:
+  code_climate:
+    repo_token:

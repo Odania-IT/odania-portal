@@ -1,6 +1,8 @@
 {
 	"config": {
 		"title": "Odania Portal",
+		"website_name": "Odania Portal",
+		"website_subtitle": "...the Portal to serve your pages",
 		"description": "Odania Portal is build for multiple domains and is using microservices to build the best web experience :)",
 		"keywords": "odania,odania portal,web portal",
 		"languages": [
@@ -8,7 +10,8 @@
 			"en"
 		],
 		"language_selector": "prefix",
-		"render_list_view": true
+		"render_list_view": true,
+		"layout": "simple"
 	},
 	"redirects": {
 		"^/$": "/detect_language",

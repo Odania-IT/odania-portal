@@ -13,3 +13,7 @@ Basic feature implementation:
 - Odania Core is used to redirect to valid domains or serve the partials [Odania Core](https://github.com/Odania-IT/odania-core)
 - Basic Admin Tool to view configuration [Odania Admin](https://github.com/Odania-IT/odania-admin)
 - Static Content can be served with [Odania Static](https://github.com/Odania-IT/odania-static)
+
+## v0.0.x
+
+Several development releases that should not be used.

@@ -1,0 +1,11 @@
+modules:
+  odania-static: odaniait/odania-static
+  odania-admin: odaniait/odania-admin
+redirects:
+  odania.de: www.odania.com/de
+  odania.com: www.odania.com
+sites:
+  www.odania.com:
+    pages:
+      - /de
+      - /en

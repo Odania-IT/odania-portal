@@ -1,0 +1,11 @@
+{
+	"flashes": {
+		"template": "flashes.html"
+	},
+	"footer": {
+		"template": "footer.html"
+	},
+	"tracking": {
+		"template": "tracking.html"
+	}
+}

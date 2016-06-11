@@ -1,0 +1,15 @@
+{
+	"plugin-config": {
+		"name": "portal-static",
+		"default": true,
+		"author": [
+			"Mike Petersen <mike@odania-it.com>"
+		],
+		"url": "http://www.odania.com"
+	},
+	"config": {
+		"author": "Mike Petersen Odania IT",
+		"url": "http://www.odania.com",
+		"layout": "simple"
+	}
+}

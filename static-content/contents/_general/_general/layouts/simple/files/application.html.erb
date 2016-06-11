@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title><%= config.get('title') %></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="Author" content="<%= config.get('author') %>">
+	<meta name="Keywords" content="<%= config.get('keywords') %>">
+	<meta name="Description" content="<%= config.get('description') %>">
+	<meta http-equiv="content-language" content="<%= config.get('languages') %>">
+	<meta name="robots" content="follow, all"/>
+	<link rel="shortcut icon" href="<%= asset.get('favicon.ico') %>"/>
+	<style type="text/css">
+		a:link {
+			text-decoration: none
+		}
+
+		a:active {
+			text-decoration: none
+		}
+
+		a:hover {
+			text-decoration: none
+		}
+
+		a:visited {
+			text-decoration: none
+		}
+	</style>
+</head>
+
+<body bgcolor="#003366" text="#000000" vlink="#660000" link="#660000" alink="#660000">
+<br/>
+
+<p><%= partial.get('content') %></p>
+
+<div class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">My project</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#" th:href="@{/}">Home</a></li>
+				<li><a href="#" th:href="@{/message}">Messages</a></li>
+				<li><a href="#" th:href="@{/task}">Tasks</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li th:if="${#authorization.expression('!isAuthenticated()')}">
+					<a href="/signin" th:href="@{/signin}">Sign in</a>
+				</li>
+				<li th:if="${#authorization.expression('isAuthenticated()')}">
+					<a href="/logout" th:href="@{/logout}">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div>
+	<%= partial.get('footer') %>
+	powered by Odania Portal
+</div>
+
+<p><%= partial.get('tracking') %></p>
+</body>
+</html>

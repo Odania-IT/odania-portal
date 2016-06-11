@@ -1,0 +1,8 @@
+{
+	"name": "simple",
+	"styles": {
+		"_general": {
+			"entry_point": "application.html.erb"
+		}
+	}
+}

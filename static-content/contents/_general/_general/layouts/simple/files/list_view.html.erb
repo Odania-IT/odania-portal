@@ -1,0 +1,8 @@
+<% data[:hits].each do |hit|
+	source = hit['_source'] %>
+	<ul>
+		<li>
+			<a href="<%= source['path'] %>"><%= source['title'] %></a>
+		</li>
+	</ul>
+<% end %>

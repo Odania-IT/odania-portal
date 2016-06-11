@@ -1,0 +1,18 @@
+{
+	"config": {
+		"title": "Odania Portal",
+		"description": "Odania Portal is build for multiple domains and is using microservices to build the best web experience :)",
+		"keywords": "odania,odania portal,web portal",
+		"languages": [
+			"de",
+			"en"
+		],
+		"language_selector": "prefix",
+		"render_list_view": true
+	},
+	"redirects": {
+		"^/$": "/detect_language",
+		"^/de$": "/de/index.html",
+		"^/en$": "/en/index.html"
+	}
+}

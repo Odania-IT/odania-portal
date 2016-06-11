@@ -1,6 +1,17 @@
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+require 'rspec'
+require 'capybara/rspec'
 
-require File.expand_path('../config/application', __FILE__)
+BASE_DIR = File.dirname(__FILE__)
 
-OdaniaPortal::Application.load_tasks
+begin
+	require 'rspec/core/rake_task'
+	RSpec::Core::RakeTask.new(:spec)
+	task :default => :spec
+rescue LoadError
+	# no rspec available
+end
+
+# Import custom tasks to keep the main Rakefile small
+Dir.glob('tasks/*.rake').each { |r| import r }
+
+task :default => ['spec']

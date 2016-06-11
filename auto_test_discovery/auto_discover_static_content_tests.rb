@@ -1,0 +1,2 @@
+class AutoDiscoverStaticContentTests
+end

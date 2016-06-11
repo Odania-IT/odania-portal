@@ -1,0 +1,65 @@
+version: '2'
+services:
+  core:
+    image: odaniait/odania-core
+    links:
+      - consul
+    depends_on:
+      - consul
+    volumes:
+      - ./fixtures/static/data:/srv/static
+      - ./fixtures/static/config:/srv/config
+    environment:
+      ENVIRONMENT: development
+      ELASTICSEARCH_HOSTS: elasticsearch:9200
+    tty: true
+    stdin_open: true
+  varnish:
+    image: odaniait/odania-varnish
+    links:
+      - consul
+    depends_on:
+      - consul
+      - core
+    environment:
+      ENVIRONMENT: development
+    tty: true
+    stdin_open: true
+
+  consulmaster:
+    image: odaniait/docker-consul:latest
+    environment:
+      BOOTSTRAP_EXPECT: 1
+      GOMAXPROCS: 2
+    tty: true
+    stdin_open: true
+  consul:
+    image: odaniait/docker-consul:latest
+    environment:
+      GOMAXPROCS: 2
+    links:
+      - consulmaster
+    depends_on:
+      - consulmaster
+    tty: true
+    stdin_open: true
+  elasticsearch:
+    image: elasticsearch:2.3
+    tty: true
+    stdin_open: true
+
+<% modules.each_pair do |name, data| %>
+
+  <%= name %>:
+    image: <%= data.image %>
+    links:
+      - consul
+    <% unless data.volumes.nil? %>
+    volumes:
+      <% data.volumes.each do |volume| %>
+      - <%= volume %>
+      <% end %>
+    <% end %>
+    tty: true
+    stdin_open: true
+<% end %>

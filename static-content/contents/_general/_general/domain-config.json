@@ -1,0 +1,10 @@
+{
+	"config": {
+		"author": "Mike Petersen Odania IT",
+		"layout": "simple",
+		"url": "http://www.odania.com"
+	},
+	"redirects": {
+		"^odania.de$": "www.odania.com/de"
+	}
+}

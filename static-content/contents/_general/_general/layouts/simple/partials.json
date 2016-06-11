@@ -1,0 +1,5 @@
+{
+	"list_view": {
+		"template": "list_view.html.erb"
+	}
+}

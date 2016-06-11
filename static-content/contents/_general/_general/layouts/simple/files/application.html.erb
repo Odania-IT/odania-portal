@@ -2,70 +2,56 @@
 <html>
 <head>
 	<title><%= config.get('title') %></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="Author" content="<%= config.get('author') %>">
 	<meta name="Keywords" content="<%= config.get('keywords') %>">
 	<meta name="Description" content="<%= config.get('description') %>">
-	<meta http-equiv="content-language" content="<%= config.get('languages') %>">
+	<meta http-equiv="content-language" content="<%= config.current_language %>">
 	<meta name="robots" content="follow, all"/>
 	<link rel="shortcut icon" href="<%= asset.get('favicon.ico') %>"/>
-	<style type="text/css">
-		a:link {
-			text-decoration: none
-		}
 
-		a:active {
-			text-decoration: none
-		}
-
-		a:hover {
-			text-decoration: none
-		}
-
-		a:visited {
-			text-decoration: none
-		}
-	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 
 <body bgcolor="#003366" text="#000000" vlink="#660000" link="#660000" alink="#660000">
 <br/>
 
-<p><%= partial.get('content') %></p>
-
-<div class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
+<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">My project</a>
+			<a class="navbar-brand" href="/">Odania Portal</a>
 		</div>
-		<div class="navbar-collapse collapse">
+		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#" th:href="@{/}">Home</a></li>
-				<li><a href="#" th:href="@{/message}">Messages</a></li>
-				<li><a href="#" th:href="@{/task}">Tasks</a></li>
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="/en/contact.html">Contact</a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li th:if="${#authorization.expression('!isAuthenticated()')}">
-					<a href="/signin" th:href="@{/signin}">Sign in</a>
-				</li>
-				<li th:if="${#authorization.expression('isAuthenticated()')}">
-					<a href="/logout" th:href="@{/logout}">Logout</a>
-				</li>
-			</ul>
-		</div>
+		</div><!--/.nav-collapse -->
 	</div>
-</div>
+</nav>
+
+<div class="container">
+	<div class="starter-template">
+		<%= partial.get('content') %>
+	</div>
+
+</div><!-- /.container -->
 
 <div>
 	<%= partial.get('footer') %>
 	powered by Odania Portal
 </div>
 
-<p><%= partial.get('tracking') %></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<%= partial.get('tracking') %>
 </body>
 </html>

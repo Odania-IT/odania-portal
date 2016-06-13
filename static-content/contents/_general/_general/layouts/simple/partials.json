@@ -1,5 +1,11 @@
 {
 	"list_view": {
 		"template": "list_view.html.erb"
+	},
+	"navigation": {
+		"template": "navigation.html.erb"
+	},
+	"footer": {
+		"template": "footer.html.erb"
 	}
 }

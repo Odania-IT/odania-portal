@@ -1,0 +1,39 @@
+<div class="widget">
+	<h4>
+		<%= t('Latest Posts') %>
+		<div class="pull-right">
+			<a href="/posts"><%= t('more') %></a>
+		</div>
+	</h4>
+	<ul>
+		<%
+			query = {
+				query: {
+					filtered: {
+						filter: {
+							bool: {
+								must: [
+									{term: {released: true}},
+									{term: {view_in_list: true}}
+								]
+							}
+						},
+						query: search.domain_query
+					}
+				},
+				sort: {
+					created_at: 'desc'
+				},
+				size: 5
+			}
+			entries = search.query query
+
+			entries['hits'].each do |hit|
+				source = hit['_source']
+		%>
+			<li>
+				<a href="<%= source['path'] %>"><%= source['title'] %></a>
+			</li>
+		<% end %>
+	</ul>
+</div>

@@ -7,5 +7,9 @@
 	},
 	"tracking": {
 		"template": "tracking.html"
+	},
+	"widgets/latest_posts": {
+		"template": "widgets/latest_posts.html.erb",
+		"cacheable": false
 	}
 }

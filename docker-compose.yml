@@ -44,7 +44,7 @@ services:
     tty: true
     stdin_open: true
   elasticsearch:
-    image: elasticsearch:2.3
+    image: elasticsearch:2.4
     tty: true
     stdin_open: true
 

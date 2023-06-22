@@ -14,7 +14,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     ffi (1.9.10)
-    hashie (3.4.4)
+    hashie (3.6.0)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -71,3 +71,6 @@ DEPENDENCIES
   rspec
   selenium-webdriver
   site_prism
+
+BUNDLED WITH
+   2.4.9
